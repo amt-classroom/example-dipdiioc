@@ -34,7 +34,7 @@ class Application {
 }
 
 // Frameworks usually implements the inversion of control (IoC) and the dependency injection (DI) patterns.
-class Framework {
+class Injector {
 
     private Map<Class, Supplier<Object>> bindings = new HashMap<>();
 
@@ -83,17 +83,17 @@ class Framework {
                 }
             }
         }
+
         return object;
     }
 }
 
 public class Main {
-
     public static void main(String[] args) {
         // In general, the initialization of the Framework is hidden.
         // The application developer typically interact with the Framework via configuration files.
         // Here, we initialize the framework programmatically.
-        Framework framework = new Framework();
+        Injector framework = new Injector();
         framework.bind(Logger.class, ConsoleLogger.class);
 
         // The creation of the Application object can now be delegated to the Framework.

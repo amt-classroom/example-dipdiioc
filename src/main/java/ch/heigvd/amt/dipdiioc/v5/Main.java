@@ -48,7 +48,7 @@ class Application {
 }
 
 // Frameworks, such as Quarkus or Spring, usually implements the inversion of control (IoC) and the dependency injection (DI) patterns.
-class Framework {
+class Injector {
 
     private Map<Class, Supplier<Object>> bindings = new HashMap<>();
 
@@ -97,6 +97,7 @@ class Framework {
                 }
             }
         }
+
         return object;
     }
 }
@@ -111,12 +112,11 @@ class Assert {
 }
 
 public class Main {
-
     public static void main(String[] args) {
         // In general, the initialization of the Framework is hidden.
         // The application developer typically interact with the Framework via configuration files.
         // Here, we initialize the framework programmatically.
-        var framework = new Framework();
+        var framework = new Injector();
         var logger = new TestableLogger();
         framework.bind(Logger.class, logger);
 

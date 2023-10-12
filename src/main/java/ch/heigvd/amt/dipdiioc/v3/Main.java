@@ -33,7 +33,6 @@ class Application {
 }
 
 public class Main {
-
     public static void main(String[] args) {
         // The concrete ConsoleLogger is injected into the Application via the constructor.
         var app = new Application(new ConsoleLogger());
@@ -41,5 +40,4 @@ public class Main {
         app.setLogger(new ConsoleLogger());
         app.performOperation();
     }
-
 }
